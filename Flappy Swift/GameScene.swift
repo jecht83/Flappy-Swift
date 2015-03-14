@@ -26,7 +26,7 @@
 
 import SpriteKit
 
-// #pragma mark - Math functions
+// Math Helpers
 extension Float {
     static func clamp(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
         if(value > max) {
@@ -82,7 +82,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let FSGapCategory: UInt32      = 1 << 3
     
     // Game States
-    
     enum FSGameState: Int {
         case FSGameStateStarting
         case FSGameStatePlaying
@@ -91,7 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var state = FSGameState.FSGameStateStarting
     
-    // #pragma mark - SKScene Initializacion
+    // MARK: - SKScene Initializacion
     
     override func didMoveToView(view: SKView) {
         initWorld()
@@ -100,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         initHUD()
     }
     
-    // #pragma mark - Init Physics
+    // MARK: - Init Physics
     
     func initWorld() {
         physicsWorld.contactDelegate = self
@@ -110,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsBody?.collisionBitMask = FSPlayerCategory
     }
     
-    // #pragma mark - Init Bird
+    // MARK: - Init Bird
     
     func initBird() {
         bird = SKSpriteNode(imageNamed: "bird1")
@@ -132,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bird.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(textures, timePerFrame: 0.1)))
     }
     
-    // #pragma mark Score
+    // MARK: - Score
     
     func initHUD() {
         label_score = SKLabelNode(fontNamed:"MarkerFelt-Wide")
@@ -147,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(instructions)
     }
     
-    // #pragma mark - Background Functions
+    // MARK: - Background Functions
     
     func initBackground() {
         background = SKNode()
@@ -174,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // #pragma mark - Pipes Functions
+    // MARK: - Pipes Functions
     
     func initPipes() {
         let screenSize = UIScreen.mainScreen().bounds
@@ -238,7 +237,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return pipe
     }
     
-    // #pragma mark - Game Over helpers
+    // MARK: - Game Over helpers
     
     func gameOver() {
         state = .FSGameStateEnded
@@ -264,7 +263,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         initBackground()
     }
     
-    // #pragma mark - SKPhysicsContactDelegate
+    // MARK: - SKPhysicsContactDelegate
     
     func didBeginContact(contact: SKPhysicsContact!) {
         let collision:UInt32 = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask)
@@ -285,7 +284,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // #pragma mark - Touch Events
+    // MARK: - Touch Events
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         if state == .FSGameStateStarting {
@@ -304,7 +303,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // #pragma mark - Frames Per Second
+    // MARK: - Frames Per Second
     
     override func update(currentTime: CFTimeInterval) {
         delta = (last_update_time == 0.0) ? 0.0 : currentTime - last_update_time
