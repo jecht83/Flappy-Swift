@@ -3,7 +3,7 @@
 //  Flappy Swift
 //
 //  Created by Julio Montoya on 13/07/14.
-//  Copyright (c) 2014 Julio Montoya. All rights reserved.
+//  Copyright (c) 2015 Julio Montoya. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,38 +29,38 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet var skView: SKView!
+  @IBOutlet var skView: SKView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-       // skView.showsPhysics   = true
+    skView.showsFPS = true
+    skView.showsNodeCount = true
+    // skView.showsPhysics   = true
         
-        if skView.scene == nil {
-            let scene = GameScene(size: skView.bounds.size)
-            skView.presentScene(scene)
-        }
+    if skView.scene == nil {
+      let scene = GameScene(size: skView.bounds.size)
+      skView.presentScene(scene)
     }
+  }
 
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
+  override func shouldAutorotate() -> Bool {
+    return true
+  }
 
-    override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-        } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
-        }
+  override func supportedInterfaceOrientations() -> Int {
+    if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+      return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+    } else {
+      return Int(UIInterfaceOrientationMask.All.rawValue)
     }
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
 
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
 }
