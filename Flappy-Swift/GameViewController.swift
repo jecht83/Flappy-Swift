@@ -2,8 +2,8 @@
 //  GameViewController.swift
 //  Flappy Swift
 //
-//  Created by Julio Montoya on 13/07/14.
-//  Copyright (c) 2015 Julio Montoya. All rights reserved.
+//  Created by Julio Montoya on 05/01/16.
+//  Copyright (c) 2016 Julio Montoya. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,9 +28,9 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-    
-  @IBOutlet var skView: SKView!
 
+  @IBOutlet weak var skView: SKView!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -45,14 +45,14 @@ class GameViewController: UIViewController {
   }
 
   override func shouldAutorotate() -> Bool {
-    return true
+        return false
   }
 
-  override func supportedInterfaceOrientations() -> Int {
+  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
     if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-      return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+      return .AllButUpsideDown
     } else {
-      return Int(UIInterfaceOrientationMask.All.rawValue)
+      return .All
     }
   }
 
@@ -63,4 +63,5 @@ class GameViewController: UIViewController {
   override func prefersStatusBarHidden() -> Bool {
     return true
   }
+    
 }
