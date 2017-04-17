@@ -58,9 +58,9 @@
 			children = (
 				02AE027D1C3D015E0095110C /* App */,
 				02AE02791C3D004C0095110C /* Assets */,
+				02AE027C1C3D009B0095110C /* Supporting Files */,
 				02AE027A1C3D00540095110C /* StoryBoards */,
 				02AE027B1C3D005F0095110C /* Other */,
-				02AE027C1C3D009B0095110C /* Support */,
 			);
 			name = "Flappy Swift";
 			path = "Flappy-Swift";
@@ -77,8 +77,8 @@
 		02AE027A1C3D00540095110C /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				02AE02441C3CFD280095110C /* Main.storyboard */,
 				02AE02491C3CFD280095110C /* LaunchScreen.storyboard */,
+				02AE02441C3CFD280095110C /* Main.storyboard */,
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -91,18 +91,17 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
-		02AE027C1C3D009B0095110C /* Support */ = {
+		02AE027C1C3D009B0095110C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				02AE024C1C3CFD280095110C /* Info.plist */,
 			);
-			name = Support;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		02AE027D1C3D015E0095110C /* App */ = {
 			isa = PBXGroup;
 			children = (
-				02AE02831C3D02930095110C /* Model */,
 				02AE02821C3D028A0095110C /* View */,
 				02AE02811C3D02800095110C /* Controller */,
 			);
@@ -123,13 +122,6 @@
 				02AE02401C3CFD280095110C /* GameScene.swift */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		02AE02831C3D02930095110C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,11 +151,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Julio Montoya";
 				TargetAttributes = {
 					02AE02381C3CFD280095110C = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -244,8 +237,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -267,7 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -288,8 +283,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -305,9 +302,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -320,6 +318,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avionicsdev.Flappy-Swift";
 				PRODUCT_NAME = "Flappy Swift";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -331,6 +330,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.avionicsdev.Flappy-Swift";
 				PRODUCT_NAME = "Flappy Swift";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
