@@ -25,8 +25,7 @@
 
 
 import SpriteKit
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -38,8 +37,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -63,7 +60,7 @@ extension Float {
   }
   
   static func range(_ min: CGFloat, max: CGFloat) -> CGFloat {
-    return CGFloat(Float(arc4random()) / 0xFFFFFFFF) * (max - min) + min
+    return CGFloat.random(in: min...max)
   }
 }
 
@@ -196,6 +193,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   func initPipes() {
     let screenSize = UIScreen.main.bounds
     let isWideScreen = (screenSize.height > 480)
+    
     let bottom = getPipeWithSize(CGSize(width: 62, height: Float.range(40, max: isWideScreen ? 360 : 280)), side: false)
     bottom.position = convert(CGPoint(x: pipe_origin_x, y: frame.minY + bottom.size.height/2 + floor_distance), to: background)
     bottom.physicsBody = SKPhysicsBody(rectangleOf: bottom.size)
@@ -266,7 +264,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.restartGame), userInfo: nil, repeats: false)
   }
   
-  func restartGame() {
+  @objc func restartGame() {
     state = .fsGameStateStarting
     bird.removeFromParent()
     background.removeAllChildren()

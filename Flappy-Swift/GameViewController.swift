@@ -29,39 +29,26 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+  // MARK: - Outlets
   @IBOutlet weak var skView: SKView!
-    
-  override func viewDidLoad() {
-    super.viewDidLoad()
 
-    skView.showsFPS = true
-    skView.showsNodeCount = true
-    // skView.showsPhysics   = true
-        
-    if skView.scene == nil {
-      let scene = GameScene(size: skView.bounds.size)
-      skView.presentScene(scene)
-    }
-  }
-
-  override var shouldAutorotate : Bool {
-        return false
-  }
-
-  override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-    if UIDevice.current.userInterfaceIdiom == .phone {
-      return .allButUpsideDown
-    } else {
-      return .all
-    }
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
-
+  // MARK: - Properties
   override var prefersStatusBarHidden : Bool {
     return true
   }
-    
+  
+  // MARK: - Life Cycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    constructScene()
+  }
+  
+  // MARK: - Initializers
+  private func constructScene() {
+    skView.showsFPS = true
+    skView.showsNodeCount = true
+    // skView.showsPhysics   = true
+    let scene = GameScene(size: skView.bounds.size)
+    skView.presentScene(scene)
+  }
 }
